@@ -122,9 +122,14 @@ const Index = () => {
           <div className="grid md:grid-cols-2 gap-8 mb-16">
             <div className="bg-white rounded-2xl p-8 shadow-lg transform hover:scale-105 transition-all duration-300">
               <div className="text-center">
-                <div className="w-24 h-24 bg-indigo-600 rounded-full mx-auto mb-4 flex items-center justify-center text-white text-2xl font-bold">
-                  SS
+                <div className="w-36 h-36 rounded-full mx-auto mb-4 overflow-hidden border-4 border-indigo-600 shadow-md">
+                  <img
+                    src="\public\Srishti_image.png"
+                    alt="Srishti Singh"
+                    className="w-full h-full object-cover object-top translate-y-3 scale-[1.37]"
+                  />
                 </div>
+
                 <h3 className="text-2xl font-bold text-gray-900">Srishti Singh</h3>
                 <p className="text-indigo-600 font-medium">President</p>
                 <p className="text-gray-600">IIIT Kota</p>
@@ -133,8 +138,12 @@ const Index = () => {
             
             <div className="bg-white rounded-2xl p-8 shadow-lg transform hover:scale-105 transition-all duration-300">
               <div className="text-center">
-                <div className="w-24 h-24 bg-indigo-600 rounded-full mx-auto mb-4 flex items-center justify-center text-white text-2xl font-bold">
-                  LM
+                <div className="w-36 h-36 rounded-full mx-auto mb-4 overflow-hidden border-4 border-indigo-600 shadow-md">
+                  <img
+                    src="\public\lokesh.png"
+                    alt="Lokesh Meena"
+                    className="w-full h-full object-cover object-top -translate-y- scale-[1.07]"
+                  />
                 </div>
                 <h3 className="text-2xl font-bold text-gray-900">Lokesh Meena</h3>
                 <p className="text-indigo-600 font-medium">Vice President</p>
