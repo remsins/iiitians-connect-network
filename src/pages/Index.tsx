@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ChevronDown, ChevronUp, Github, Mail, Twitter, Linkedin, Users, Trophy, Code, Target, Database, BookOpen } from 'lucide-react';
+import { ChevronDown, ChevronUp, Github, Mail, Twitter, Linkedin, Users, Trophy, Code, Target, Database, BookOpen, Award, Newspaper } from 'lucide-react';
 import Navigation from '../components/Navigation';
 
 const Index = () => {
@@ -31,14 +31,14 @@ const Index = () => {
       icon: <Database className="w-6 h-6" />
     },
     {
-      title: "IIIT Connect Platform", 
-      description: "Interactive platform connecting students and alumni across all IIITs",
-      icon: <Users className="w-6 h-6" />
+      title: "News & Events Across IIITs", 
+      description: "Stay updated with latest happenings, achievements, and events from all IIITs",
+      icon: <Newspaper className="w-6 h-6" />
     },
     {
-      title: "Academic Resource Hub",
-      description: "Curated collection of study materials and academic resources",
-      icon: <BookOpen className="w-6 h-6" />
+      title: "Alumni Achievements",
+      description: "Celebrating success stories and accomplishments of IIIT graduates",
+      icon: <Award className="w-6 h-6" />
     },
     {
       title: "Competitions & Hackathons",
@@ -57,7 +57,7 @@ const Index = () => {
       <Navigation />
       
       {/* Hero Section */}
-      <section id="home" className="relative overflow-hidden bg-gradient-to-br from-indigo-50 to-white">
+      <section id="home" className="relative overflow-hidden bg-gradient-to-br from-indigo-50 to-white pt-20">
         <div className="max-w-7xl mx-auto px-6 py-20">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Logo Space */}
