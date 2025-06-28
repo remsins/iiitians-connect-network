@@ -1,6 +1,6 @@
-
 import React, { useState } from 'react';
-import { ChevronDown, ChevronUp, Github, Mail, Twitter, Linkedin, Users, Trophy, Code, Target } from 'lucide-react';
+import { ChevronDown, ChevronUp, Github, Mail, Twitter, Linkedin, Users, Trophy, Code, Target, Database, BookOpen } from 'lucide-react';
+import Navigation from '../components/Navigation';
 
 const Index = () => {
   const [expandedTeam, setExpandedTeam] = useState<string | null>(null);
@@ -26,19 +26,19 @@ const Index = () => {
 
   const projects = [
     {
-      title: "JEE Rank Predictor",
-      description: "Advanced algorithm to predict JEE Main & Advanced ranks based on performance",
-      icon: <Target className="w-6 h-6" />
-    },
-    {
       title: "Centralized Placement Data",
       description: "Comprehensive database of placement statistics across all IIITs",
+      icon: <Database className="w-6 h-6" />
+    },
+    {
+      title: "IIIT Connect Platform", 
+      description: "Interactive platform connecting students and alumni across all IIITs",
       icon: <Users className="w-6 h-6" />
     },
     {
-      title: "Open-source Learning Platform",
-      description: "Collaborative platform for sharing resources and study materials",
-      icon: <Code className="w-6 h-6" />
+      title: "Academic Resource Hub",
+      description: "Curated collection of study materials and academic resources",
+      icon: <BookOpen className="w-6 h-6" />
     },
     {
       title: "Competitions & Hackathons",
@@ -54,8 +54,10 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-white">
+      <Navigation />
+      
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-indigo-50 to-white">
+      <section id="home" className="relative overflow-hidden bg-gradient-to-br from-indigo-50 to-white">
         <div className="max-w-7xl mx-auto px-6 py-20">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Logo Space */}
@@ -104,7 +106,7 @@ const Index = () => {
       </section>
 
       {/* Current Team Section */}
-      <section className="py-20 bg-gray-50">
+      <section id="team" className="py-20 bg-gray-50">
         <div className="max-w-6xl mx-auto px-6">
           <h2 className="text-4xl font-bold text-center text-gray-900 mb-16">Current Team</h2>
           
@@ -184,7 +186,7 @@ const Index = () => {
       {/* Projects & Tools Section */}
       <section className="py-20 bg-white">
         <div className="max-w-6xl mx-auto px-6">
-          <h2 className="text-4xl font-bold text-center text-gray-900 mb-16">Projects & Tools</h2>
+          <h2 className="text-4xl font-bold text-center text-gray-900 mb-16">Our Initiatives</h2>
           <div className="grid md:grid-cols-2 gap-8">
             {projects.map((project, index) => (
               <div key={index} className="bg-gradient-to-br from-white to-indigo-50 rounded-2xl p-8 shadow-lg border border-indigo-100 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
@@ -234,7 +236,7 @@ const Index = () => {
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-white py-12">
+      <footer id="contact" className="bg-gray-900 text-white py-12">
         <div className="max-w-6xl mx-auto px-6">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="mb-6 md:mb-0">
