@@ -1,12 +1,12 @@
 # IIITians Network 🌐
 
-A modern, responsive website designed to bring together updates, resources, and achievements from all Indian Institutes of Information Technology (IIITs). It features a powerful **IIIT-only College Predictor**, updates about various IIITs, and a sleek user interface with responsive animations and branding.
+A modern, responsive website designed to bring together updates, resources, and achievements from all Indian Institutes of Information Technology (IIITs). It features a powerful **College Predictor**, updates about various IIITs, and a sleek user interface with responsive animations and branding.
 
 ---
 
 ## 🚀 Features
 
-- 🎓 **IIIT-Only College Predictor** based on JEE Main Rank (coming soon)
+- 🎓 **College Predictor** based on JEE Main Rank (coming soon)
 - 📰 Latest verified achievements, hackathons, and news from across IIITs
 - 🌐 Clean animated interface with custom branding
 - 📱 Fully responsive and mobile-friendly
