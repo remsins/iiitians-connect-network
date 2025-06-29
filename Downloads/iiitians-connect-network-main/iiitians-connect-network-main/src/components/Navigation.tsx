@@ -28,15 +28,19 @@ const Navigation = () => {
         isScrolled ? 'shadow-md backdrop-blur-md py-2' : 'py-4'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto pl-[2px] pr-6">
         <div className="flex items-center justify-between h-12">
           {/* Logo/Brand */}
-          <div className="flex items-center">
-            <div className="text-xl font-bold">IIITians Network</div>
+          <div className="flex items-center -ml-20">
+            <img
+              src="public/IIITians-Network-Logo-Light.png"
+              alt="IIITians Network Logo"
+              className="w-20 h-auto object-contain"
+            />
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-8 ml-20">
             {navItems.map((item) => (
               <a
                 key={item.name}
