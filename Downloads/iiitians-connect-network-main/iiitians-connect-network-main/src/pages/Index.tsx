@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { ChevronDown, ChevronUp, Github, Mail, Twitter, Linkedin, Users, Trophy, Code, Target, Database, BookOpen, Award, Newspaper } from 'lucide-react';
 import Navigation from '../components/Navigation';
+import BlobLogo from '../components/BlobLogo';
 
 const Index = () => {
   const [expandedTeam, setExpandedTeam] = useState<string | null>(null);
@@ -65,35 +66,117 @@ const Index = () => {
       <Navigation />
       
       {/* Hero Section */}
-      <section id="home" className="relative overflow-hidden bg-gradient-to-br from-indigo-50 to-white pt-20">
-        <div className="max-w-7xl mx-auto px-6 py-20">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* Logo Space */}
-            <div className="flex justify-center lg:justify-start">
-              <div className="w-80 h-80 bg-gradient-to-br from-indigo-600 to-indigo-700 rounded-3xl shadow-2xl flex items-center justify-center transform hover:scale-105 transition-transform duration-300">
-                <div className="text-center text-white">
-                  <div className="text-4xl font-bold mb-2">IIITians</div>
-                  <div className="text-2xl font-light">Network</div>
-                  <div className="w-16 h-1 bg-white mx-auto mt-4 rounded-full"></div>
+      <section id="home" className="relative overflow-hidden bg-gradient-to-br from-indigo-50 to-white pt-32 pb-28">
+        {/* Wavy SVG on Top */}
+        <div className="absolute top-16 left-0 w-full overflow-hidden leading-[0]">
+
+          <svg
+            className="relative block w-[calc(140%+1.3px)] h-[120px]"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 1200 120"
+            preserveAspectRatio="none"
+          >
+            <path
+              d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,
+              70.36-5.37,136.33-33.31,206.8-37.5,
+              73.84-4.36,147.54,16.88,218.2,35.26,
+              69.27,18,138.3,24.88,209.4,13.08,
+              36.15-6,69.85-17.84,104.45-29.34,
+              84.64-27.79,208.15-67.08,295.15-.32V0Z"
+              opacity=".25"
+              fill="#4F46E5"
+            />
+            <path
+              d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,
+              99.41,111.27,165,111,224.58,91.58,
+              255.73,81.43,284.67,65.51,314.25,51.78,
+              355.17,32.78,398.98,5.78,445.08,2.11,
+              481.34-.74,515.98,11.53,543.68,33.67,
+              575.45,59.06,606,95.67,647.31,106.67,
+              687.75,117.46,728.66,99.98,766.44,82.39,
+              804.22,64.8,846.66,48.66,888.42,44.61,
+              948.15,38.76,1001.7,67.49,1057.32,83.45,
+              1087.52,92.11,1116.32,89.62,1144.41,76.95,
+              1166.84,66.06,1192.41,50.02,1205.06,27.71V0Z"
+              opacity=".5"
+              fill="#4F46E5"
+            />
+            <path
+              d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57,
+              518.83,34.93,560.06,22.45,603.44,16.11,
+              662.44,7.48,715.92,28.35,769,51.51,
+              827.93,77.22,886,95.24,951.2,90,
+              1037.73,83,1123.66,44.29,1200,5.19V0Z"
+              fill="#4F46E5"
+            />
+          </svg>
+        </div>
+
+        {/* Decorative Blob */}
+        <div className="absolute -top-20 -left-40 w-[500px] h-[500px] bg-indigo-100 rounded-full mix-blend-multiply filter blur-2xl opacity-30 animate-pulse z-0"></div>
+
+        {/* Main Content */}
+        <div className="max-w-7xl mx-auto px-6 relative z-10 mt-10">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            {/* Logo */}
+            {/* <div className="flex justify-center lg:justify-start">
+              <div className="w-96 h-96 bg-white rounded-3xl shadow-2xl flex items-center justify-center p-6 border border-indigo-100 transform hover:scale-105 transition-transform duration-300">
+                <img
+                  src="IIITians-Network-Logo-Dark.png"
+                  alt="IIITians Network Logo"
+                  className="w-full h-full object-contain"
+                />
+              </div>
+            </div> */}
+            <div className="relative w-[520px] h-[520px] flex items-center justify-center">
+              <div className="absolute inset-0 z-0 animate-float flex items-center justify-center">
+                <div className="relative w-[540px] h-[540px] flex items-center justify-center">
+                  <BlobLogo />
+                  <img
+                    src="IIITians-Network-Logo-Dark.png"
+                    alt="IIITians Network Logo"
+                    className="absolute w-[560px] h-[560px] object-contain drop-shadow-[0_6px_12px_rgba(0,0,0,0.3)]"
+                  />
                 </div>
               </div>
             </div>
-            
+
+
+
+
+
+
+
+
+
+
             {/* Content */}
-            <div className="space-y-8">
-              <div>
-                <h1 className="text-5xl font-bold text-gray-900 mb-6 leading-tight">
-                  Empowering Connections 
-                  <span className="text-indigo-600"> Across IIITs</span>
-                </h1>
-                <div className="text-xl text-gray-700 leading-relaxed bg-gray-50 p-6 rounded-2xl border-l-4 border-indigo-600">
-                  "IIITians Network is an autonomous student-led community connecting all IIITs across India. We aim to exchange information, boost outreach, and connect students with alumni while promoting the brand 'IIITian'."
-                </div>
+            <div className="space-y-6 text-center lg:text-left">
+              <h1 className="text-5xl md:text-6xl font-extrabold text-gray-900 leading-tight">
+                Empowering Connections <br />
+                <span className="text-indigo-600">Across IIITs</span>
+              </h1>
+
+              <p className="text-lg text-gray-700 leading-relaxed">
+                IIITians Network is an autonomous student-led community connecting all IIITs across India. We aim to exchange information,
+                boost outreach, and connect students with alumni while promoting the brand <strong>'IIITian'</strong>.
+              </p>
+
+              <div className="mt-6">
+                <a
+                  href="#about"
+                  className="inline-block px-6 py-3 bg-indigo-600 text-white text-lg font-semibold rounded-xl shadow-md hover:bg-indigo-700 transition duration-300"
+                >
+                  Explore the Network
+                </a>
               </div>
             </div>
           </div>
         </div>
       </section>
+
+
+
 
       {/* About Us Section */}
       <section className="py-20 bg-white">
@@ -102,7 +185,7 @@ const Index = () => {
           <div className="bg-gradient-to-r from-indigo-50 to-blue-50 rounded-3xl p-8 shadow-lg">
             <p className="text-lg text-gray-700 leading-relaxed">
               IIITians Network is an autonomous student community that spans across all Indian Institutes of Information Technology. 
-              Founded in January 2020 by passionate students from IIIT Guwahati, IIIT Kota, and IIIT Gwalior, we've grown into a 
+              Founded in January 2020 by passionate students from IIIT Kota, IIIT Guwahati, and IIIT Gwalior, we've grown into a 
               vibrant ecosystem focused on connecting students, building innovative platforms, and hosting exciting hackathons that 
               foster collaboration and learning. Our mission extends to creating valuable tools for JEE aspirants, including our 
               popular Rank Predictor, comprehensive open-source resources, and detailed placement insights that help students make 
@@ -124,7 +207,7 @@ const Index = () => {
               <div className="text-center">
                 <div className="w-36 h-36 rounded-full mx-auto mb-4 overflow-hidden border-4 border-indigo-600 shadow-md">
                   <img
-                    src="\public\Srishti_image.png"
+                    src="Srishti_image.png"
                     alt="Srishti Singh"
                     className="w-full h-full object-cover object-top translate-y-3 scale-[1.37]"
                   />
@@ -140,7 +223,7 @@ const Index = () => {
               <div className="text-center">
                 <div className="w-36 h-36 rounded-full mx-auto mb-4 overflow-hidden border-4 border-indigo-600 shadow-md">
                   <img
-                    src="\public\lokesh.png"
+                    src="lokesh.png"
                     alt="Lokesh Meena"
                     className="w-full h-full object-cover object-top -translate-y- scale-[1.07]"
                   />
