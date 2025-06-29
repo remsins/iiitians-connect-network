@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-import { ChevronDown, ChevronUp, Github, Mail, Twitter, Linkedin, Users, Trophy, Code, Target, Database, BookOpen, Award, Newspaper } from 'lucide-react';
+import {
+  ChevronDown, ChevronUp, Github, Mail, Twitter, Linkedin, Trophy, Database, Award, Newspaper
+} from 'lucide-react';
 import Navigation from '../components/Navigation';
 import BlobLogo from '../components/BlobLogo';
 
@@ -23,14 +25,13 @@ const Index = () => {
       { name: "Nilesh Sahay", role: "Content Writer", institute: "IIIT Kalyani" },
       { name: "Tanya Mishra", role: "Content Writer", institute: "IIIT Kalyani" },
       { name: "Ritik Gupta", role: "Content Writer", institute: "IIIT Lucknow" },
-      
     ],
     social: [
       { name: "Ankur Singh", role: "Instagram Manager", institute: "IIIT Kota" },
       { name: "Ansh Malhotra", role: "Outreach Coordinator", institute: "IIIT Kota" },
       { name: "Reem", role: "Social Media Coordinator", institute: "IIIT Pune" },
       { name: "Varun Raj", role: "Social Media Coordinator", institute: "IIIT Ranchi" },
-    ]
+    ],
   };
 
   const projects = [
@@ -40,7 +41,7 @@ const Index = () => {
       icon: <Database className="w-6 h-6" />
     },
     {
-      title: "News & Events Across IIITs", 
+      title: "News & Events Across IIITs",
       description: "Stay updated with latest happenings, achievements, and events from all IIITs",
       icon: <Newspaper className="w-6 h-6" />
     },
@@ -57,78 +58,68 @@ const Index = () => {
   ];
 
   const collaborators = [
-    "IIIT Guwahati", "IIIT Kota", "IIIT Gwalior", "IIIT Allahabad", 
+    "IIIT Guwahati", "IIIT Kota", "IIIT Gwalior", "IIIT Allahabad",
     "IIIT Bangalore", "IIIT Delhi", "IIIT Vadodara", "IIIT Hyderabad"
   ];
 
   return (
     <div className="min-h-screen bg-white">
       <Navigation />
-      
+
       {/* Hero Section */}
       <section id="home" className="relative overflow-hidden bg-gradient-to-br from-indigo-50 to-white pt-32 pb-28">
-        {/* Wavy SVG on Top */}
         <div className="absolute top-16 left-0 w-full overflow-hidden leading-[0]">
 
-          <svg
-            className="relative block w-[calc(140%+1.3px)] h-[120px]"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 1200 120"
-            preserveAspectRatio="none"
-          >
-            <path
-              d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,
-              70.36-5.37,136.33-33.31,206.8-37.5,
-              73.84-4.36,147.54,16.88,218.2,35.26,
-              69.27,18,138.3,24.88,209.4,13.08,
-              36.15-6,69.85-17.84,104.45-29.34,
-              84.64-27.79,208.15-67.08,295.15-.32V0Z"
-              opacity=".25"
-              fill="#4F46E5"
-            />
-            <path
-              d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,
-              99.41,111.27,165,111,224.58,91.58,
-              255.73,81.43,284.67,65.51,314.25,51.78,
-              355.17,32.78,398.98,5.78,445.08,2.11,
-              481.34-.74,515.98,11.53,543.68,33.67,
-              575.45,59.06,606,95.67,647.31,106.67,
-              687.75,117.46,728.66,99.98,766.44,82.39,
-              804.22,64.8,846.66,48.66,888.42,44.61,
-              948.15,38.76,1001.7,67.49,1057.32,83.45,
-              1087.52,92.11,1116.32,89.62,1144.41,76.95,
-              1166.84,66.06,1192.41,50.02,1205.06,27.71V0Z"
-              opacity=".5"
-              fill="#4F46E5"
-            />
-            <path
-              d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57,
-              518.83,34.93,560.06,22.45,603.44,16.11,
-              662.44,7.48,715.92,28.35,769,51.51,
-              827.93,77.22,886,95.24,951.2,90,
-              1037.73,83,1123.66,44.29,1200,5.19V0Z"
-              fill="#4F46E5"
-            />
-          </svg>
-        </div>
+    <svg
+      className="relative block w-[calc(140%+1.3px)] h-[120px]"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 1200 120"
+      preserveAspectRatio="none"
+    >
+      <path
+        d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,
+        70.36-5.37,136.33-33.31,206.8-37.5,
+        73.84-4.36,147.54,16.88,218.2,35.26,
+        69.27,18,138.3,24.88,209.4,13.08,
+        36.15-6,69.85-17.84,104.45-29.34,
+        84.64-27.79,208.15-67.08,295.15-.32V0Z"
+        opacity=".25"
+        fill="#4F46E5"
+      />
+      <path
+        d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,
+        99.41,111.27,165,111,224.58,91.58,
+        255.73,81.43,284.67,65.51,314.25,51.78,
+        355.17,32.78,398.98,5.78,445.08,2.11,
+        481.34-.74,515.98,11.53,543.68,33.67,
+        575.45,59.06,606,95.67,647.31,106.67,
+        687.75,117.46,728.66,99.98,766.44,82.39,
+        804.22,64.8,846.66,48.66,888.42,44.61,
+        948.15,38.76,1001.7,67.49,1057.32,83.45,
+        1087.52,92.11,1116.32,89.62,1144.41,76.95,
+        1166.84,66.06,1192.41,50.02,1205.06,27.71V0Z"
+        opacity=".5"
+        fill="#4F46E5"
+      />
+      <path
+        d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57,
+        518.83,34.93,560.06,22.45,603.44,16.11,
+        662.44,7.48,715.92,28.35,769,51.51,
+        827.93,77.22,886,95.24,951.2,90,
+        1037.73,83,1123.66,44.29,1200,5.19V0Z"
+        fill="#4F46E5"
+      />
+    </svg>
+  </div>
 
-        {/* Decorative Blob */}
+
+
         <div className="absolute -top-20 -left-40 w-[500px] h-[500px] bg-indigo-100 rounded-full mix-blend-multiply filter blur-2xl opacity-30 animate-pulse z-0"></div>
 
-        {/* Main Content */}
         <div className="max-w-7xl mx-auto px-6 relative z-10 mt-10">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Logo */}
-            {/* <div className="flex justify-center lg:justify-start">
-              <div className="w-96 h-96 bg-white rounded-3xl shadow-2xl flex items-center justify-center p-6 border border-indigo-100 transform hover:scale-105 transition-transform duration-300">
-                <img
-                  src="IIITians-Network-Logo-Dark.png"
-                  alt="IIITians Network Logo"
-                  className="w-full h-full object-contain"
-                />
-              </div>
-            </div> */}
-            <div className="relative w-[520px] h-[520px] flex items-center justify-center">
+            <div className="relative w-[520px] h-[520px] hidden lg:flex items-center justify-center">
               <div className="absolute inset-0 z-0 animate-float flex items-center justify-center">
                 <div className="relative w-[540px] h-[540px] flex items-center justify-center">
                   <BlobLogo />
@@ -141,32 +132,18 @@ const Index = () => {
               </div>
             </div>
 
-
-
-
-
-
-
-
-
-
-            {/* Content */}
+            {/* Text */}
             <div className="space-y-6 text-center lg:text-left">
               <h1 className="text-5xl md:text-6xl font-extrabold text-gray-900 leading-tight">
                 Empowering Connections <br />
                 <span className="text-indigo-600">Across IIITs</span>
               </h1>
-
               <p className="text-lg text-gray-700 leading-relaxed">
                 IIITians Network is an autonomous student-led community connecting all IIITs across India. We aim to exchange information,
                 boost outreach, and connect students with alumni while promoting the brand <strong>'IIITian'</strong>.
               </p>
-
               <div className="mt-6">
-                <a
-                  href="#about"
-                  className="inline-block px-6 py-3 bg-indigo-600 text-white text-lg font-semibold rounded-xl shadow-md hover:bg-indigo-700 transition duration-300"
-                >
+                <a href="#about" className="inline-block px-6 py-3 bg-indigo-600 text-white text-lg font-semibold rounded-xl shadow-md hover:bg-indigo-700 transition duration-300">
                   Explore the Network
                 </a>
               </div>
@@ -175,10 +152,10 @@ const Index = () => {
         </div>
       </section>
 
-
-
-
-      {/* About Us Section */}
+      {/* About Us, Team, Initiatives, Collaborators, Footer */}
+      {/* (The rest of the sections remain the same as in your original but with above improvements applied) */}
+      {/* About Us */}
+ {/* About Us Section */}
       <section className="py-20 bg-white">
         <div className="max-w-4xl mx-auto px-6">
           <h2 className="text-4xl font-bold text-center text-gray-900 mb-12">About Us</h2>
@@ -196,10 +173,45 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Current Team Section */}
+<section className="py-20 bg-white">
+        <div className="max-w-6xl mx-auto px-6">
+          <h2 className="text-4xl font-bold text-center text-gray-900 mb-16">Our Initiatives</h2>
+          <div className="grid md:grid-cols-2 gap-8">
+            {projects.map((project, index) => (
+              <div key={index} className="bg-gradient-to-br from-white to-indigo-50 rounded-2xl p-8 shadow-lg border border-indigo-100 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                <div className="text-indigo-600 mb-4">
+                  {project.icon}
+                </div>
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">{project.title}</h3>
+                <p className="text-gray-700 leading-relaxed">{project.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Culture & Events Section */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-4xl mx-auto px-6">
+          <h2 className="text-4xl font-bold text-center text-gray-900 mb-12">Culture & Events</h2>
+          <div className="bg-white rounded-3xl p-8 shadow-lg">
+            <p className="text-lg text-gray-700 leading-relaxed">
+              The IIIT ecosystem thrives on innovation, collaboration, and academic excellence. Our institutions foster an 
+              environment where students engage in cutting-edge research, participate in diverse club activities, and build 
+              lifelong connections. From technical symposiums to cultural festivals, from coding competitions to research 
+              conferences, IIITs provide a holistic educational experience that shapes future technologists and leaders. 
+              Our network amplifies this culture by creating inter-IIIT collaborations, organizing pan-IIIT events, and 
+              ensuring that the spirit of innovation and community continues to grow across all our institutes.
+            </p>
+          </div>
+        </div>
+      </section>
+
+{/* Team Section */}
+ {/* Current Team Section */}
       <section id="team" className="py-20 bg-gray-50">
         <div className="max-w-6xl mx-auto px-6">
-          <h2 className="text-4xl font-bold text-center text-gray-900 mb-16">Current Team</h2>
+          <h2 className="text-4xl font-bold text-center text-gray-900 mb-16">Meet the Team</h2>
           
           {/* Leadership */}
           <div className="grid md:grid-cols-2 gap-8 mb-16">
@@ -283,42 +295,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Projects & Tools Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-6xl mx-auto px-6">
-          <h2 className="text-4xl font-bold text-center text-gray-900 mb-16">Our Initiatives</h2>
-          <div className="grid md:grid-cols-2 gap-8">
-            {projects.map((project, index) => (
-              <div key={index} className="bg-gradient-to-br from-white to-indigo-50 rounded-2xl p-8 shadow-lg border border-indigo-100 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
-                <div className="text-indigo-600 mb-4">
-                  {project.icon}
-                </div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">{project.title}</h3>
-                <p className="text-gray-700 leading-relaxed">{project.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Culture & Events Section */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-4xl mx-auto px-6">
-          <h2 className="text-4xl font-bold text-center text-gray-900 mb-12">Culture & Events</h2>
-          <div className="bg-white rounded-3xl p-8 shadow-lg">
-            <p className="text-lg text-gray-700 leading-relaxed">
-              The IIIT ecosystem thrives on innovation, collaboration, and academic excellence. Our institutions foster an 
-              environment where students engage in cutting-edge research, participate in diverse club activities, and build 
-              lifelong connections. From technical symposiums to cultural festivals, from coding competitions to research 
-              conferences, IIITs provide a holistic educational experience that shapes future technologists and leaders. 
-              Our network amplifies this culture by creating inter-IIIT collaborations, organizing pan-IIIT events, and 
-              ensuring that the spirit of innovation and community continues to grow across all our institutes.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Past Collaborators Section */}
+{/* Past Collaborators Section */}
       <section className="py-20 bg-white">
         <div className="max-w-6xl mx-auto px-6">
           <h2 className="text-4xl font-bold text-center text-gray-900 mb-16">Past Collaborators</h2>

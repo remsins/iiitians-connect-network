@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { Menu, X } from 'lucide-react';
-import BlobLogo from './BlobLogo';
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -28,10 +27,10 @@ const Navigation = () => {
         isScrolled ? 'shadow-md backdrop-blur-md py-2' : 'py-4'
       }`}
     >
-      <div className="max-w-7xl mx-auto pl-[2px] pr-6">
+      <div className="max-w-7xl mx-auto px-6">
         <div className="flex items-center justify-between h-12">
           {/* Logo/Brand */}
-          <div className="flex items-center -ml-20">
+          <div className="flex items-center">
             <img
               src="public/IIITians-Network-Logo-Light.png"
               alt="IIITians Network Logo"
@@ -40,7 +39,7 @@ const Navigation = () => {
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8 ml-20">
+          <div className="hidden md:flex items-center space-x-8">
             {navItems.map((item) => (
               <a
                 key={item.name}
