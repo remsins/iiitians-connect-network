@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import {
   ChevronDown, ChevronUp, Github, Mail, Twitter, Linkedin, Trophy, Database, Award, Newspaper
 } from 'lucide-react';
 import Navigation from '../components/Navigation';
 import BlobLogo from '../components/BlobLogo';
-
 const Index = () => {
   const [expandedTeam, setExpandedTeam] = useState<string | null>(null);
 
@@ -152,9 +152,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* About Us, Team, Initiatives, Collaborators, Footer */}
-      {/* (The rest of the sections remain the same as in your original but with above improvements applied) */}
-      {/* About Us */}
+      
  {/* About Us Section */}
       <section className="py-20 bg-white">
         <div className="max-w-4xl mx-auto px-6">
@@ -177,15 +175,20 @@ const Index = () => {
         <div className="max-w-6xl mx-auto px-6">
           <h2 className="text-4xl font-bold text-center text-gray-900 mb-16">Our Initiatives</h2>
           <div className="grid md:grid-cols-2 gap-8">
+
             {projects.map((project, index) => (
-              <div key={index} className="bg-gradient-to-br from-white to-indigo-50 rounded-2xl p-8 shadow-lg border border-indigo-100 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
-                <div className="text-indigo-600 mb-4">
-                  {project.icon}
-                </div>
+              
+              <Link
+                to={project.title === 'Centralized Placement Data' ? '/placements' : '#'}
+                key={index}
+                className="bg-gradient-to-br from-white to-indigo-50 rounded-2xl p-8 shadow-lg border border-indigo-100 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 block"
+              >
+                <div className="text-indigo-600 mb-4">{project.icon}</div>
                 <h3 className="text-2xl font-bold text-gray-900 mb-4">{project.title}</h3>
                 <p className="text-gray-700 leading-relaxed">{project.description}</p>
-              </div>
+              </Link>
             ))}
+
           </div>
         </div>
       </section>
