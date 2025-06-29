@@ -36,6 +36,3 @@ A modern, responsive website designed to bring together updates, resources, and 
 
 ---
 
-## 📁 Folder Structure
-
->>>>>>> 5d2836fec0eef4fb1b2b120accf63583fa9b87f3
