@@ -30,7 +30,7 @@ const Navigation = () => {
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex items-center justify-between h-12">
           {/* Logo/Brand */}
-          <div className="flex items-center">
+          <div className="flex items-center -ml-28">
             <img
               src="IIITians-Network-Logo-Light.png"
               alt="IIITians Network Logo"
