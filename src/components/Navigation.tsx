@@ -32,7 +32,7 @@ const Navigation = () => {
           {/* Logo/Brand */}
           <div className="flex items-center">
             <img
-              src="public/IIITians-Network-Logo-Light.png"
+              src="IIITians-Network-Logo-Light.png"
               alt="IIITians Network Logo"
               className="w-20 h-auto object-contain"
             />

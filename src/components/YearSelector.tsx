@@ -11,7 +11,7 @@ interface YearSelectorProps {
 const YearSelector = ({ years, selectedYear, onYearChange }: YearSelectorProps) => {
   return (
     <div className="w-full max-w-xs">
-      <label className="block text-sm font-medium text-gray-700 mb-2 flex items-center gap-2">
+      <label className="text-sm font-medium text-gray-700 mb-2 flex items-center gap-2">
         <Calendar className="h-4 w-4" />
         Select Year
       </label>
