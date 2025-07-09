@@ -1,4 +1,7 @@
+'use client';
+
 import React, { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 
 const Navigation = () => {
@@ -13,16 +16,17 @@ const Navigation = () => {
     { name: 'Contact', href: '#contact' }
   ];
 
+  // Scroll tracking
   useEffect(() => {
     const handleScroll = () => {
       const hero = document.getElementById('hero');
       if (!hero) {
-        setIsScrolled(window.scrollY > 10); // fallback if no hero section
+        setIsScrolled(window.scrollY > 10);
         return;
       }
 
       const heroBottom = hero.getBoundingClientRect().bottom;
-      setIsScrolled(heroBottom <= 80); // change threshold if needed
+      setIsScrolled(heroBottom <= 80);
     };
 
     handleScroll(); // Run once on mount
@@ -30,6 +34,24 @@ const Navigation = () => {
 
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Smooth scroll when anchor link is clicked (even from other routes)
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (href.startsWith('#')) {
+      e.preventDefault();
+      const id = href.replace('#', '');
+      const element = document.getElementById(id);
+      if (element) {
+        window.scrollTo({
+          top: element.offsetTop - 80,
+          behavior: 'smooth'
+        });
+        setIsOpen(false);
+      } else {
+        window.location.href = `/${href}`; // fallback navigation
+      }
+    }
+  };
 
   return (
     <nav
@@ -41,7 +63,7 @@ const Navigation = () => {
     >
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         {/* Logo */}
-        <a href="#home" className="flex items-center gap-3">
+        <a href="/" className="flex items-center gap-3">
           <img
             src={isScrolled ? 'IIITians-Network-Logo-Blue.png' : 'IIITians-Network-Logo-Light.png'}
             alt="IIITians Network Logo"
@@ -58,12 +80,17 @@ const Navigation = () => {
             <a
               key={item.name}
               href={item.href}
-              className={`relative text-sm font-medium ${
-                isScrolled ? 'text-[#4F46E5]' : 'text-white'
-              } hover:text-[#4F46E5] transition duration-300 group`}
+              onClick={(e) => handleNavClick(e, item.href)}
+              className={`relative text-sm font-medium transition-colors duration-300 group ${
+                isScrolled ? 'text-[#4F46E5] hover:text-[#1e1b4b]' : 'text-white hover:text-white'
+              }`}
             >
               {item.name}
-              <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-[#4F46E5] group-hover:w-full transition-all duration-300"></span>
+              <span
+                className={`absolute left-0 -bottom-1 w-0 h-0.5 transition-all duration-300 group-hover:w-full ${
+                  isScrolled ? 'bg-[#4F46E5]' : 'bg-white'
+                }`}
+              ></span>
             </a>
           ))}
         </div>
@@ -91,7 +118,7 @@ const Navigation = () => {
               <a
                 key={item.name}
                 href={item.href}
-                onClick={() => setIsOpen(false)}
+                onClick={(e) => handleNavClick(e, item.href)}
                 className="block px-4 py-2 text-[#4F46E5] font-medium hover:bg-gray-100 rounded-md transition-all"
               >
                 {item.name}

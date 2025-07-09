@@ -1,4 +1,13 @@
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import {
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  Legend,
+  ResponsiveContainer,
+} from 'recharts';
 import { PlacementData } from '../data/collegeData';
 
 interface PlacementChartProps {
@@ -7,49 +16,73 @@ interface PlacementChartProps {
 
 const PlacementChart = ({ data }: PlacementChartProps) => {
   return (
-    <div className="w-full h-96 bg-white p-6 rounded-lg shadow-lg">
-      <h3 className="text-lg font-semibold text-gray-800 mb-4">Placement Packages by Branch (LPA)</h3>
-      <ResponsiveContainer width="100%" height="100%">
-        <BarChart data={data} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
-          <CartesianGrid strokeDasharray="3 3" stroke="#e0e0e0" />
-          <XAxis 
-            dataKey="branch" 
-            stroke="#666"
-            fontSize={12}
-            fontWeight="500"
+    <div className="w-full bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
+      <h3 className="text-xl font-semibold text-gray-800 mb-6">
+        Placement Packages by Branch (LPA)
+      </h3>
+
+      {/* Increased height to make bars taller */}
+      <ResponsiveContainer width="100%" height={450}>
+        <BarChart
+          data={data}
+          margin={{ top: 20, right: 30, left: 0, bottom: 60 }}
+          barCategoryGap={20}
+        >
+          <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
+          <XAxis
+            dataKey="branch"
+            tick={{ fill: '#4B5563', fontSize: 14 }}
+            axisLine={{ stroke: '#E5E7EB' }}
+            tickLine={false}
           />
-          <YAxis 
-            stroke="#666"
-            fontSize={12}
-            label={{ value: 'Package (LPA)', angle: -90, position: 'insideLeft' }}
+          <YAxis
+            tick={{ fill: '#4B5563', fontSize: 14 }}
+            axisLine={{ stroke: '#E5E7EB' }}
+            tickLine={false}
+            label={{
+              value: 'Package (LPA)',
+              angle: -90,
+              position: 'insideLeft',
+              fill: '#4B5563',
+              fontSize: 14,
+            }}
           />
-          <Tooltip 
+          <Tooltip
             contentStyle={{
-              backgroundColor: '#fff',
-              border: '1px solid #ccc',
+              backgroundColor: '#ffffff',
+              border: '1px solid #e5e7eb',
               borderRadius: '8px',
-              boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)'
+              boxShadow: '0 4px 12px rgba(0, 0, 0, 0.05)',
+              fontSize: '14px',
             }}
             formatter={(value, name) => [`₹${value} LPA`, name]}
           />
-          <Legend />
-          <Bar 
-            dataKey="highestPackage" 
-            fill="#3b82f6" 
+          <Legend
+            verticalAlign="bottom"
+            align="center"
+            height={40}
+            wrapperStyle={{
+              paddingTop: 20,
+              fontSize: 14,
+            }}
+          />
+          <Bar
+            dataKey="highestPackage"
             name="Highest Package"
-            radius={[2, 2, 0, 0]}
+            fill="#3B82F6"
+            radius={[6, 6, 0, 0]}
           />
-          <Bar 
-            dataKey="averagePackage" 
-            fill="#10b981" 
+          <Bar
+            dataKey="averagePackage"
             name="Average Package"
-            radius={[2, 2, 0, 0]}
+            fill="#10B981"
+            radius={[6, 6, 0, 0]}
           />
-          <Bar 
-            dataKey="lowestPackage" 
-            fill="#f59e0b" 
+          <Bar
+            dataKey="lowestPackage"
             name="Lowest Package"
-            radius={[2, 2, 0, 0]}
+            fill="#F59E0B"
+            radius={[6, 6, 0, 0]}
           />
         </BarChart>
       </ResponsiveContainer>

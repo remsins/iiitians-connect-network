@@ -26,7 +26,7 @@ const CollegeStats = ({ college, selectedYear }: CollegeStatsProps) => {
   );
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 mt-16">
       <Card className="bg-gradient-to-r from-blue-50 to-indigo-50 border-blue-200">
         <CardHeader>
           <CardTitle className="flex items-center gap-2 text-xl text-blue-800">
