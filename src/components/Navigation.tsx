@@ -43,7 +43,7 @@ const Navigation = () => {
         {/* Logo */}
         <a href="#home" className="flex items-center gap-3">
           <img
-            src={isScrolled ? 'IIITians-Network-Logo-Dark.png' : 'IIITians-Network-Logo-Blue.png'}
+            src={isScrolled ? 'IIITians-Network-Logo-Blue.png' : 'IIITians-Network-Logo-Light.png'}
             alt="IIITians Network Logo"
             className="w-14 md:w-16 h-auto object-contain"
           />
