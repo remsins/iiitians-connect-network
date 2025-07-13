@@ -1,22 +1,24 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
+  const location = useLocation();
+  const navigate = useNavigate();
+
   const navItems = [
     { name: 'Home', href: '#home' },
-    { name: 'JEE Counselling', href: '#jee-counselling' },
+    { name: 'JEE Counselling', href: '#jee-counselling' }, // ✅ Updated
     { name: 'IIIT Placements', href: '#iiit-placements' },
     { name: 'Our Team', href: '#team' },
-    { name: 'Contact', href: '#contact' }
+    { name: 'Contact', href: '#contact' },
   ];
 
-  // Scroll tracking
   useEffect(() => {
     const handleScroll = () => {
       const hero = document.getElementById('hero');
@@ -29,27 +31,36 @@ const Navigation = () => {
       setIsScrolled(heroBottom <= 80);
     };
 
-    handleScroll(); // Run once on mount
+    handleScroll(); // initial check
     window.addEventListener('scroll', handleScroll);
-
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Smooth scroll when anchor link is clicked (even from other routes)
-  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+  const handleNavClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string
+  ) => {
+    e.preventDefault();
+    setIsOpen(false);
+
     if (href.startsWith('#')) {
-      e.preventDefault();
       const id = href.replace('#', '');
-      const element = document.getElementById(id);
-      if (element) {
-        window.scrollTo({
-          top: element.offsetTop - 80,
-          behavior: 'smooth'
-        });
-        setIsOpen(false);
-      } else {
-        window.location.href = `/${href}`; // fallback navigation
+      const el = document.getElementById(id);
+
+      if (location.pathname !== '/') {
+        navigate('/', { replace: false }); // go to home first
+        // Scroll after navigation can be handled via state/context if needed
+        return;
       }
+
+      if (el) {
+        window.scrollTo({
+          top: el.offsetTop - 80,
+          behavior: 'smooth',
+        });
+      }
+    } else {
+      navigate(href);
     }
   };
 
@@ -65,7 +76,11 @@ const Navigation = () => {
         {/* Logo */}
         <a href="/" className="flex items-center gap-3">
           <img
-            src={isScrolled ? 'IIITians-Network-Logo-Blue.png' : 'IIITians-Network-Logo-Light.png'}
+            src={
+              isScrolled
+                ? 'IIITians-Network-Logo-Blue.png'
+                : 'IIITians-Network-Logo-Light.png'
+            }
             alt="IIITians Network Logo"
             className="w-14 md:w-16 h-auto object-contain"
           />
@@ -82,7 +97,9 @@ const Navigation = () => {
               href={item.href}
               onClick={(e) => handleNavClick(e, item.href)}
               className={`relative text-sm font-medium transition-colors duration-300 group ${
-                isScrolled ? 'text-[#4F46E5] hover:text-[#1e1b4b]' : 'text-white hover:text-white'
+                isScrolled
+                  ? 'text-[#4F46E5] hover:text-[#1e1b4b]'
+                  : 'text-white hover:text-white'
               }`}
             >
               {item.name}
@@ -95,12 +112,9 @@ const Navigation = () => {
           ))}
         </div>
 
-        {/* Mobile Menu Button */}
+        {/* Mobile Menu Toggle */}
         <div className="md:hidden">
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="focus:outline-none"
-          >
+          <button onClick={() => setIsOpen(!isOpen)} className="focus:outline-none">
             {isOpen ? (
               <X className={`w-6 h-6 ${isScrolled ? 'text-[#4F46E5]' : 'text-white'}`} />
             ) : (
@@ -110,7 +124,7 @@ const Navigation = () => {
         </div>
       </div>
 
-      {/* Mobile Nav Dropdown */}
+      {/* Mobile Dropdown */}
       {isOpen && (
         <div className="md:hidden px-6 pt-2 pb-4">
           <div className="space-y-2 rounded-xl bg-white shadow-md border">

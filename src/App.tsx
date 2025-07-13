@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import Placements from "./pages/Placements";
 import NotFound from "./pages/NotFound";
+import JEECounselling from "./pages/JEECounselling"; // ✅ New page
 
 const queryClient = new QueryClient();
 
@@ -19,7 +20,7 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/placements" element={<Placements />} />
-          {/* Catch-all route for 404 page */}
+          <Route path="/jee-counselling" element={<JEECounselling />} /> {/* ✅ New route */}
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

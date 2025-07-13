@@ -4,6 +4,8 @@ import {
   ChevronDown, ChevronUp, Github, Mail, Twitter, Linkedin, Trophy, Database, Award, Newspaper
 } from 'lucide-react';
 import Navigation from '../components/Navigation';
+import JEECounselling from './JEECounselling'; // adjust the path if needed
+
 import BlobLogo from '../components/BlobLogo';
 const Index = () => {
   const [expandedTeam, setExpandedTeam] = useState<string | null>(null);
@@ -314,6 +316,12 @@ const Index = () => {
           </div>
         </div>
       </section>
+
+              {/* JEE Counselling Section */}
+        <section id="jee-counselling" className="py-20 bg-white">
+          <JEECounselling />
+        </section>
+
 
       {/* Footer */}
       <footer id="contact" className="bg-gray-900 text-white py-12">
