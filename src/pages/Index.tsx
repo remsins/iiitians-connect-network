@@ -5,6 +5,8 @@ import {
 } from 'lucide-react';
 import Navigation from '../components/Navigation';
 import JEECounselling from './JEECounselling'; // adjust the path if needed
+import NewsAndEvents from './NewsEvents'; // adjust path if needed
+
 
 import BlobLogo from '../components/BlobLogo';
 const Index = () => {
@@ -178,18 +180,24 @@ const Index = () => {
           <h2 className="text-4xl font-bold text-center text-gray-900 mb-16">Our Initiatives</h2>
           <div className="grid md:grid-cols-2 gap-8">
 
-            {projects.map((project, index) => (
-              
-              <Link
-                to={project.title === 'Centralized Placement Data' ? '/placements' : '#'}
-                key={index}
-                className="bg-gradient-to-br from-white to-indigo-50 rounded-2xl p-8 shadow-lg border border-indigo-100 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 block"
-              >
-                <div className="text-indigo-600 mb-4">{project.icon}</div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">{project.title}</h3>
-                <p className="text-gray-700 leading-relaxed">{project.description}</p>
-              </Link>
-            ))}
+            {projects.map((project, index) => {
+              let route = "#";
+              if (project.title === "Centralized Placement Data") route = "/placements";
+              else if (project.title === "News & Events Across IIITs") route = "/news-events";
+
+              return (
+                <Link
+                  to={route}
+                  key={index}
+                  className="bg-gradient-to-br from-white to-indigo-50 rounded-2xl p-8 shadow-lg border border-indigo-100 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 block"
+                >
+                  <div className="text-indigo-600 mb-4">{project.icon}</div>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-4">{project.title}</h3>
+                  <p className="text-gray-700 leading-relaxed">{project.description}</p>
+                </Link>
+              );
+            })}
+
 
           </div>
         </div>
