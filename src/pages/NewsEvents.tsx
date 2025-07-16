@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Navigation from "../components/Navigation"; // Optional, add if needed
 
 const eventData = [
   {
@@ -38,20 +39,15 @@ const eventData = [
 const NewsEvents = () => {
   const [activeEvent, setActiveEvent] = useState<null | typeof eventData[0]>(null);
 
-  // Prevent background scroll + avoid jitter on modal open
   useEffect(() => {
     if (activeEvent) {
-      const scrollBarWidth = window.innerWidth - document.documentElement.clientWidth;
-      document.body.classList.add("overflow-hidden");
-      document.body.style.paddingRight = `${scrollBarWidth}px`;
+      document.body.classList.add("body-lock-scroll");
     } else {
-      document.body.classList.remove("overflow-hidden");
-      document.body.style.paddingRight = "0px";
+      document.body.classList.remove("body-lock-scroll");
     }
 
     return () => {
-      document.body.classList.remove("overflow-hidden");
-      document.body.style.paddingRight = "0px";
+      document.body.classList.remove("body-lock-scroll");
     };
   }, [activeEvent]);
 
@@ -69,8 +65,8 @@ const NewsEvents = () => {
         {eventData.map((event, index) => (
           <div
             key={index}
+            className="bg-white rounded-2xl overflow-hidden shadow-md border border-gray-200 transition duration-300 hover:shadow-xl cursor-pointer"
             onClick={() => setActiveEvent(event)}
-            className="cursor-pointer bg-white rounded-2xl overflow-hidden shadow-md border border-gray-200 transition duration-300 hover:shadow-xl"
           >
             <img
               src={event.image}
@@ -81,7 +77,16 @@ const NewsEvents = () => {
               <h3 className="text-2xl font-semibold text-gray-900 mb-2">
                 {event.title}
               </h3>
-              <p className="text-gray-600">{event.description}</p>
+              <p className="text-gray-600 mb-4">{event.description}</p>
+              <button
+                onClick={(e) => {
+                  e.stopPropagation(); // Prevent card click
+                  setActiveEvent(event);
+                }}
+                className="text-indigo-600 font-medium hover:underline"
+              >
+                View Details
+              </button>
             </div>
           </div>
         ))}
@@ -95,7 +100,7 @@ const NewsEvents = () => {
         >
           <div
             className="bg-white max-w-xl w-full rounded-2xl overflow-hidden shadow-lg relative animate-fade-in"
-            onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside
+            onClick={(e) => e.stopPropagation()}
           >
             <button
               onClick={() => setActiveEvent(null)}

@@ -137,21 +137,33 @@ const Index = () => {
             </div>
 
             {/* Text */}
-            <div className="space-y-6 text-center lg:text-left">
-              <h1 className="text-5xl md:text-6xl font-extrabold text-gray-900 leading-tight">
-                Empowering Connections <br />
-                <span className="text-indigo-600">Across IIITs</span>
-              </h1>
-              <p className="text-lg text-gray-700 leading-relaxed">
-                IIITians Network is an autonomous student-led community connecting all IIITs across India. We aim to exchange information,
-                boost outreach, and connect students with alumni while promoting the brand <strong>'IIITian'</strong>.
-              </p>
-              <div className="mt-6">
-                <a href="#about" className="inline-block px-6 py-3 bg-indigo-600 text-white text-lg font-semibold rounded-xl shadow-md hover:bg-indigo-700 transition duration-300">
-                  Explore the Network
-                </a>
-              </div>
-            </div>
+<div className="space-y-6 text-center lg:text-left">
+  <h1 className="text-5xl md:text-6xl font-extrabold text-gray-900 leading-tight">
+    Empowering Connections <br />
+    <span className="text-indigo-600">Across IIITs</span>
+  </h1>
+  <p className="text-lg text-gray-700 leading-relaxed">
+    IIITians Network is an autonomous student-led community connecting all IIITs across India. We aim to exchange information,
+    boost outreach, and connect students with alumni while promoting the brand <strong>'IIITian'</strong>.
+  </p>
+
+  {/* Buttons */}
+  <div className="mt-6 flex justify-center lg:justify-start gap-4">
+    <a
+      href="/login"
+      className="px-5 py-2.5 bg-indigo-600 text-white text-base font-semibold rounded-lg shadow-sm border border-indigo-600 hover:bg-indigo-700 transition duration-300"
+    >
+      Login
+    </a>
+    <a
+      href="/register"
+      className="px-5 py-2.5 bg-white text-indigo-600 text-base font-semibold rounded-lg border border-indigo-300 hover:border-indigo-600 hover:bg-indigo-50 transition duration-300"
+    >
+      Register
+    </a>
+  </div>
+</div>
+
           </div>
         </div>
       </section>
@@ -184,6 +196,7 @@ const Index = () => {
               let route = "#";
               if (project.title === "Centralized Placement Data") route = "/placements";
               else if (project.title === "News & Events Across IIITs") route = "/news-events";
+              else if (project.title === 'Competitions & Hackathons') route = '/competitions-hackathons';
 
               return (
                 <Link
